@@ -1,0 +1,20 @@
+{
+  "name": "cine",
+  "version": "0.0.1",
+  "description": "Proyecto INST",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Satanus220 !..!",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
