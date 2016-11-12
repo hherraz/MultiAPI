@@ -37,10 +37,10 @@ app.delete('/api/ticket/:ticketId', (req, res) => {
 
 mongoose.connect('mongodb://localhost:27017/cine', (err, res) => {
     if (err) {
-        return console.log('Error al conectar a la base de datos'+ err);
+        return console.log('Error al conectar a la base de datos' + err);
     }
     console.log('Conexion con BD establecida');
-    
+
     app.listen(PORT, () => {
         console.log('API RESTfull del cine corriendo en puerto ' + PORT);
     });
