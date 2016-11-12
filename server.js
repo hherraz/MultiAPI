@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
+var Ticket = require('./modelos/ticket');
+
 
 var app = express();
 
@@ -23,8 +25,14 @@ app.get('/api/ticket/:ticketId', (req, res) => {
 });
 
 app.post('/api/ticket', (req, res) => {
+    console.log('POST /api/ticket');
     console.log(req.body);
-    res.status(200).send({ message: 'El ticket se ha recibido' });
+
+    let Ticket = new Ticket();
+    Ticket.nombre = req.body.nombre;
+    Ticket.qr = req.body.qr();
+
+
 });
 
 app.put('/api/ticket/:ticketId', (req, res) => {
