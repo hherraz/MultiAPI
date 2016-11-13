@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Pelicula = mongoose.model('Pelicula');
+var Pelicula = mongoose.model('Pelicula');
 
 var TicketEsquema = Schema({
     nombre: String,

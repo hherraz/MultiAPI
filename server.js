@@ -6,7 +6,10 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
+var peli = require('./modelos/pelicula');
 var Ticket = require('./modelos/ticket');
+
+
 
 
 var app = express();
@@ -31,8 +34,16 @@ app.post('/api/ticket', (req, res) => {
     let Ticket = new Ticket();
     Ticket.nombre = req.body.nombre;
     Ticket.qr = req.body.qr();
+    Ticket.precio = req.body.precio;
+    Ticket.pelicula = req.body.pelicula;
+    Ticket.fecha_funcion = req.body.fecha_funcion;
+    ticket.hora_funcion = req.body.hora_funcion;
 
+    Ticket.save((err, ticketGuardado) => {
+        if (err) res.status(500).send({ message: 'Error al guardar el producto en BD: ' + err });
 
+        res.status(200).send({ ticket: ticketGuardado });
+    });
 });
 
 app.put('/api/ticket/:ticketId', (req, res) => {
