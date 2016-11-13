@@ -31,14 +31,14 @@ app.post('/api/ticket', (req, res) => {
     console.log('POST /api/ticket');
     console.log(req.body);
 
-    let Ticket = new Ticket();
-    Ticket.qr = req.body.qr();
-    Ticket.precio = req.body.precio;
-    Ticket.pelicula = req.body.pelicula;
-    Ticket.fecha_funcion = req.body.fecha_funcion;
+    let ticket = new Ticket();
+    ticket.qr = req.body.qr;
+    ticket.precio = req.body.precio;
+    ticket.pelicula = req.body.pelicula;
+    ticket.fecha_funcion = req.body.fecha_funcion;
     ticket.hora_funcion = req.body.hora_funcion;
 
-    Ticket.save((err, ticketGuardado) => {
+    ticket.save((err, ticketGuardado) => {
         if (err) res.status(500).send({ message: 'Error al guardar el producto en BD: ' + err });
 
         res.status(200).send({ ticket: ticketGuardado });
