@@ -32,7 +32,6 @@ app.post('/api/ticket', (req, res) => {
     console.log(req.body);
 
     let Ticket = new Ticket();
-    Ticket.nombre = req.body.nombre;
     Ticket.qr = req.body.qr();
     Ticket.precio = req.body.precio;
     Ticket.pelicula = req.body.pelicula;

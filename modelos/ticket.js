@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 var Pelicula = mongoose.model('Pelicula');
 
 var TicketEsquema = Schema({
-    nombre: String,
     qr: String,
     precio: { type: Number, default: 0 },
     pelicula: { type: Schema.ObjectId, ref: "Pelicula" },
@@ -13,4 +12,4 @@ var TicketEsquema = Schema({
     hora_funcion: String
 });
 
-mongoose.model('Ticket', TicketEsquema);
+module.exports = mongoose.model('Ticket', TicketEsquema);

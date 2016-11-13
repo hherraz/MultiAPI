@@ -15,4 +15,4 @@ var peliEsquema = new Schema({
     subtipo: { type: String, enum: ['Ciencia Ficcion', 'Comedia', 'Romantica', 'Accion', 'Aventuras', 'Infantil', 'Otros'] }
 });
 
-mongoose.model('Pelicula', peliEsquema);
+module.exports = mongoose.model('Pelicula', peliEsquema);
