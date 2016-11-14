@@ -20,11 +20,22 @@ app.use(bodyParse.json());
 
 //Obtener ticket
 app.get('/api/ticket', (req, res) => {
-    res.status(200).send({ ticket: [] })
+    Ticket.find({},(err,ticket)=>{
+        if (err) return res.status(500).send({ message: 'Error al enviar la peticion: ' + err });
+        if (!ticket) return res.status(404).send({ message: 'No Hay tickets en la BD no existe' });
+        res.status(200).send({ticket})    
+    });
+    
 });
 //ticket por ID
 app.get('/api/ticket/:ticketId', (req, res) => {
+    let ticketId = req.params.ticketId;
+    Ticket.findById(ticketId, (err, ticket) => {
+        if (err) return res.status(500).send({ message: 'Erro al enviar la peticion: ' + err });
+        if (!ticket) return res.status(404).send({ message: 'El producto no existe' });
 
+        res.status(200).send({ ticket: ticket });
+    })
 });
 
 app.post('/api/ticket', (req, res) => {
