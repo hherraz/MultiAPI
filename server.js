@@ -2,15 +2,16 @@
 
 const mongoose = require('mongoose');
 const app = require('./app');
-const PORT = process.env.PORT || 3000;
+const config = require('./config');
 
-mongoose.connect('mongodb://localhost:27017/cine', (err, res) => {
+
+mongoose.connect(config.db, (err, res) => {
     if (err) {
         return console.log('Error al conectar a la base de datos' + err);
     }
     console.log('Conexion con BD establecida');
 
-    app.listen(PORT, () => {
-        console.log('API RESTfull del cine corriendo en puerto ' + PORT);
+    app.listen(config.port, () => {
+        console.log('API RESTfull del cine corriendo en puerto ' + config.port);
     });
 });
