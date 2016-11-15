@@ -1,6 +1,7 @@
 'use strict'
-var peli = require('./modelos/pelicula');
-var Ticket = require('./modelos/ticket');
+
+var peli = require('../modelos/pelicula');
+var Ticket = require('../modelos/ticket');
 
 /* Funcion que obtiene un ticket por id */
 function obtenerTicket(req, res) {
@@ -14,13 +15,15 @@ function obtenerTicket(req, res) {
 };
 
 /* Funcion que obtiene todos los tickets */
-function obtnerTodos(req, res) {
+function obtenerTodos(req, res) {
+
     Ticket.find({}, (err, ticket) => {
         if (err) return res.status(500).send({ message: 'Error al enviar la peticion: ' + err });
         if (!ticket) return res.status(404).send({ message: 'No Hay tickets en la BD no existe' });
         res.status(200).send({ ticket })
     });
 }
+
 /* Funcion que crea un nuevo ticket */
 function guardarTicket(req, res) {
     console.log('POST /api/ticket');
@@ -41,7 +44,7 @@ function guardarTicket(req, res) {
 };
 
 /* Funcion que actualiza un ticket */
-function actualizarTicket(req,res) {
+function actualizarTicket(req, res) {
     let ticketId = req.params.ticketId;
     let update = req.body;
 
@@ -52,8 +55,8 @@ function actualizarTicket(req,res) {
 };
 
 /* Funcion que elimina de la BD un ticket */
-function eliminarTicket(req,res) {
-        let ticketId = req.params.ticketId
+function eliminarTicket(req, res) {
+    let ticketId = req.params.ticketId
     Ticket.findById(ticketId, (err, ticket) => {
         if (err) return res.status(500).send({ message: `Error al Borrar el ticket: ${err}` });
 
@@ -65,9 +68,9 @@ function eliminarTicket(req,res) {
 };
 
 
-exports = {
+module.exports = {
     obtenerTicket,
-    obtnerTodos,
+    obtenerTodos,
     guardarTicket,
     actualizarTicket,
     eliminarTicket
