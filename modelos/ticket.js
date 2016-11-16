@@ -9,6 +9,7 @@ var TicketEsquema = Schema({
     precio: { type: Number, default: 0 },
     fecha_operacion: { type: Date, default: Date.now },
     pelicula: { type: Schema.ObjectId, ref: "Pelicula" },
+    visto: { type: Boolean, default: false },
     fecha_funcion: Date,
     hora_funcion: String
 });
