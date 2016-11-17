@@ -9,7 +9,8 @@ var peliEsquema = new Schema({
     descripcion: String,
     caratula: String,
     fecha_estreno: Date,
-    fehca_salida_cartelera: Date,
+    fecha_salida_cartelera: Date,
+    en_cartelera: { type: Boolean, default: true },
     tipo: { type: String, enum: ['Ciencia Ficcion', 'Comedia', 'Romantica', 'Accion', 'Aventuras', 'Infantil', 'Otros'] },
     tipo2: { type: String, enum: ['Ciencia Ficcion', 'Comedia', 'Romantica', 'Accion', 'Aventuras', 'Infantil', 'Otros'] },
     subtipo: { type: String, enum: ['Ciencia Ficcion', 'Comedia', 'Romantica', 'Accion', 'Aventuras', 'Infantil', 'Otros'] }
