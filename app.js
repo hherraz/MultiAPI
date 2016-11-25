@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/publica'));
 app.use('/api', api);
 
 app.get('*', (req, res) => {
-        res.sendfile('./publica/login.html');
+        res.sendFile('login.html',{root: __dirname +'/publica/'});
     }),
 
     module.exports = app;

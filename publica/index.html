@@ -11,6 +11,14 @@
 
 <body ng-controller="FirstController">
     <h1>Prueba!!!!</h1>
+    <ul>
+      <li ng-repeat="ticket in tickets">
+        <h1>{{ticket.precio}}</h1>
+        <p>
+          {{ticket.visto}}
+        </p>
+      </li>
+    </ul>
 </body>
 
 </html>
